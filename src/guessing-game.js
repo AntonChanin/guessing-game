@@ -1,41 +1,33 @@
-var output = 0;
-var low, high = 0;
-var mid = 0;
 class GuessingGame {
     
     constructor() {
+        this.min = 0;
+        this.max = 0;
+        this.mid = 0;
     }
 
     setRange(min, max) {
-        low = min;
-        high = max-1;
+        this.min = min;
+        this.max = max - 1;
     }
 
     guess() {
-        console.log(number);
-        while (low <= high) {
-            mid = (low + high) / 2;
-            output = mid;
-            if (number == mid) {
-                output = mid;
-            }
-            else {
-                if (number > mid) {
-                    this.lower();
-                } else {
-                    this.greater();
-                }
-            }
+        let output = 0;
+        let number = 0;
+        this.mid = Math.ceil((this.min + this.max) / 2);
+        output = this.mid;
+        if (number == this.mid) {
+            output = this.mid;
         }
-        return parseInt(output);
+        return output + 1;
     }
 
     lower() {
-        return low = mid + 1;
+        this.max = this.mid - 1;
     }
 
     greater() {
-        return high = mid - 1;
+        this.min = this.mid + 1;
     }
 }
 
